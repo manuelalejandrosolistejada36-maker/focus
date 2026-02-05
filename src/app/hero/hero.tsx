@@ -152,7 +152,7 @@ export default function Hero() {
     <div className="min-h-screen bg-black text-white font-sans selection:bg-[#30D158] selection:text-black flex flex-col items-center pt-10 sm:pt-20 px-4 pb-10">
       
       {/* Header */}
-      <header className="w-full max-w-[400px] mb-8 flex flex-col items-center text-center">
+      <header className="w-full max-w-100 mb-8 flex flex-col items-center text-center">
         <div 
             className="relative group cursor-pointer inline-flex items-center gap-2 px-4 py-2 rounded-full hover:bg-[#1C1C1E] transition-all duration-300"
             onClick={() => inputRef.current?.showPicker()}
@@ -171,7 +171,7 @@ export default function Hero() {
       </header>
 
       {/* Calendar Grid */}
-      <div className="w-full max-w-[400px] grid grid-cols-7 gap-2 sm:gap-3">
+      <div className="w-full max-w-100 grid grid-cols-7 gap-2 sm:gap-3">
         {/* Días de la semana (opcional, solo iniciales) */}
         {['D', 'L', 'M', 'X', 'J', 'V', 'S'].map(d => (
             <div key={d} className="text-center text-[#3a3a3c] text-xs font-bold mb-2">{d}</div>
@@ -273,7 +273,7 @@ export default function Hero() {
                             onKeyDown={(e) => e.key === 'Enter' && addGoal()}
                             placeholder="Nueva meta..."
                             className="
-                                flex-1 bg-[#2C2C2E] text-white 
+                                flex-1 min-w-0 bg-[#2C2C2E] text-white 
                                 rounded-xl px-4 py-3 
                                 text-base placeholder-[#636366]
                                 focus:outline-none focus:ring-2 focus:ring-[#30D158]/50
@@ -285,11 +285,11 @@ export default function Hero() {
                             value={newGoalTime}
                             onChange={(e) => setNewGoalTime(e.target.value)}
                             className="
-                                bg-[#2C2C2E] text-white 
+                                max-w-[120px] bg-[#2C2C2E] text-white 
                                 rounded-xl px-3 py-3 
                                 text-base
                                 focus:outline-none focus:ring-2 focus:ring-[#30D158]/50
-                                [color-scheme:dark]
+                                scheme-dark
                                 transition-all
                             "
                         />
@@ -374,6 +374,13 @@ export default function Hero() {
             </div>
         </div>
       )}
+      
+      {/* Footer moved outside modal */}
+      <footer className="mt-auto text-center">
+            <p className="text-[#666666] text-xs tracking-widest uppercase">
+            © {new Date().getFullYear()} Focus. Todos los derechos reservados.
+            </p>
+      </footer>
     </div>
   );
 }
