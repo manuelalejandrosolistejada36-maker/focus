@@ -1,6 +1,7 @@
 'use client';
 
 import { ElementType, useEffect, useRef, useState, createElement, useMemo, useCallback } from 'react';
+import { useRouter } from 'next/navigation';
 import { gsap } from 'gsap';
 
 interface TextTypeProps {
@@ -192,6 +193,8 @@ const TextType = ({
 };
 
 export default function Hero() {
+  const router = useRouter();
+
   return (
     <section className="h-screen flex flex-col justify-center items-center text-center px-4 bg-black">
       <div className="text-4xl md:text-7xl font-bold text-white mb-4 tracking-tight">
@@ -206,7 +209,7 @@ export default function Hero() {
         />
       </div>
 
-      <button className="relative text-lg text-[#e1e1e1] font-extrabold uppercase tracking-widest transition-colors duration-400 ease-[cubic-bezier(0.25,0.8,0.25,1)] hover:text-white focus:text-white after:content-[''] after:pointer-events-none after:absolute after:-bottom-0.5 after:left-1/2 after:w-0 after:h-0.5 after:bg-white after:transition-all after:duration-400 after:ease-[cubic-bezier(0.25,0.8,0.25,1)] hover:after:w-full hover:after:left-0 focus:after:w-full focus:after:left-0">
+      <button onClick={() => router.push('/hero')} className="relative text-lg text-[#e1e1e1] font-extrabold uppercase tracking-widest transition-colors duration-400 ease-[cubic-bezier(0.25,0.8,0.25,1)] hover:text-white focus:text-white after:content-[''] after:pointer-events-none after:absolute after:-bottom-0.5 after:left-1/2 after:w-0 after:h-0.5 after:bg-white after:transition-all after:duration-400 after:ease-[cubic-bezier(0.25,0.8,0.25,1)] hover:after:w-full hover:after:left-0 focus:after:w-full focus:after:left-0">
         Get Started
       </button>
     </section>
